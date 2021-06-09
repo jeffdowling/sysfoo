@@ -2,7 +2,12 @@ pipeline {
   agent any
   stages {
     stage('build') {
-      agent any
+      agent {
+        docker {
+          image 'maven:3.6.3-jdk-11-slim'
+        }
+
+      }
       steps {
         echo 'Compiling sysfoo app'
         sh 'mvn compile'
@@ -12,7 +17,7 @@ pipeline {
     stage('test') {
       agent {
         docker {
-          image 'git push origin dockerpackage'
+          image 'maven:3.6.3-jdk-11-slim'
         }
 
       }
@@ -25,7 +30,7 @@ pipeline {
     stage('package') {
       agent {
         docker {
-          image 'git push origin dockerpackage'
+          image 'maven:3.6.3-jdk-11-slim'
         }
 
       }
