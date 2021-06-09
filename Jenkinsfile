@@ -2,12 +2,7 @@ pipeline {
   agent any
   stages {
     stage('build') {
-      agent {
-        docker {
-          image 'git push origin dockerpackage'
-        }
-
-      }
+      agent any
       steps {
         echo 'Compiling sysfoo app'
         sh 'mvn compile'
