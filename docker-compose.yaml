@@ -1,7 +1,6 @@
 version: "3.8"
-
 services:
-sysfoo:
-image: jeffdo/sysfoo:latest
-ports:
-- 9999:8080
+  sysfoo:
+  image: jeffdo/sysfoo:latest
+  ports:
+    - 9999:8080
